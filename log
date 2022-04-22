@@ -41,3 +41,20 @@ vi., 22 de abr. de 2022  7:54:02:
  tests:  4|7
 total_score: 5/70
 fb815e8
+vi., 22 de abr. de 2022 10:08:02: 
+ treemap.c | 74 +++++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 46 insertions(+), 28 deletions(-)
+In file included from test.c:4:0:
+treemap.c: In function 'searchTreeMap':
+treemap.c:81:19: error: statement with no effect [-Werror=unused-value]
+     tree->current == tree->root;
+     ~~~~~~~~~~~~~~^~~~~~~~~~~~~
+treemap.c:83:76: error: return from incompatible pointer type [-Werror=incompatible-pointer-types]
+         if (is_equal(tree, key, tree->current->pair->key) == 1) return tree->current;
+                                                                        ~~~~^~~~~~~~~
+treemap.c:86:17: error: implicit declaration of function 'lower_than' [-Werror=implicit-function-declaration]
+             if (lower_than(tree->current->pair->key, key) == 1){
+                 ^~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+9de2025
