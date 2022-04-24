@@ -85,7 +85,6 @@ TreeNode *minimum(TreeNode *x)
 
 void removeNode(TreeMap *tree, TreeNode *node)
 {
-    printf(("key : %d\n", *(int*)node->pair->key));
     if (node->left != NULL && node->right != NULL){
         TreeNode *max = node->left;
         while(max->right != NULL){
@@ -102,7 +101,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         free(max);
     }
     else if (node->left == NULL && node->right == NULL){
-        
+        printf("------------------");
         if (node == node->parent->left ) node->parent->left = NULL;
         else node->parent->right = NULL;
     }
