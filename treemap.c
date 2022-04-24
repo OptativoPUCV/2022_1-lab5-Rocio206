@@ -85,6 +85,11 @@ TreeNode *minimum(TreeNode *x)
 
 void removeNode(TreeMap *tree, TreeNode *node)
 {
+    if (node == tree->root){
+        tree->root = NULL;
+        free(node);
+        return;
+    }
     if (node->left != NULL && node->right != NULL){ //dos hijos
         TreeNode *min = minimum(node->right);
         node->pair= min->pair;
