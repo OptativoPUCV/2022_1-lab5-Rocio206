@@ -85,22 +85,27 @@ TreeNode *minimum(TreeNode *x)
 
 void removeNode(TreeMap *tree, TreeNode *node)
 {
-    if (node == tree->root){
+    if (node == tree->root)
+    {
         tree->root = NULL;
         free(node);
         return;
     }
-    if (node->left != NULL && node->right != NULL){ //dos hijos
+    if (node->left != NULL && node->right != NULL)
+    { // dos hijos
         TreeNode *min = minimum(node->right);
-        node->pair= min->pair;
-        removeNode(tree,min);
+        node->pair = min->pair;
+        removeNode(tree, min);
     }
-    else if (node->left == NULL && node->right == NULL){ ///ningun hijo
-        if (node == node->parent->left ) node->parent->left = NULL;
-        else node->parent->right = NULL;
+    else if (node->left == NULL && node->right == NULL)
+    { /// ningun hijo
+        if (node == node->parent->left)
+            node->parent->left = NULL;
+        else
+            node->parent->right = NULL;
     }
     else // un hijo
-    {            
+    {
 
         if (node->left != NULL)
         {
@@ -112,10 +117,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         }
     }
     free(node);
-    
 }
-
-
 
 void eraseTreeMap(TreeMap *tree, void *key)
 {
@@ -162,7 +164,8 @@ Pair *firstTreeMap(TreeMap *tree)
 
     tree->current = tree->root;
 
-    while (tree->current->left != NULL){
+    while (tree->current->left != NULL)
+    {
         tree->current = tree->current->left;
     }
     return tree->current->pair;
@@ -170,16 +173,17 @@ Pair *firstTreeMap(TreeMap *tree)
 
 Pair *nextTreeMap(TreeMap *tree)
 {
-    if (tree->current->right != NULL){
+    if (tree->current->right != NULL)
+    {
         return minimum(tree->current->right)->pair;
     }
-    else{
-        
-        while(tree->lower_than(tree->current->parent, tree->current) == 1){
+    else
+    {
+        printf("---------------");
+        while (tree->lower_than(tree->current->parent, tree->current) == 1)
+        {
             tree->current = tree->current->parent;
         }
         return tree->current->pair;
-
-
     }
 }
