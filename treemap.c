@@ -160,7 +160,6 @@ Pair *upperBound(TreeMap *tree, void *key)
 Pair *firstTreeMap(TreeMap *tree)
 {
     tree->current = tree->root;
-    if (tree->current == NULL) return NULL;
 
     while (tree->current->left != NULL){
         tree->current = tree->current->left;
@@ -170,5 +169,16 @@ Pair *firstTreeMap(TreeMap *tree)
 
 Pair *nextTreeMap(TreeMap *tree)
 {
-    return NULL;
+    if (tree->current == tree->root) return ;
+
+    if (tree->current->right != NULL){
+        return minimum(tree->current->right);
+    }
+    else{
+        while(tree->lower_than(tree->current, tree->current->parent) == 1){
+            tree->current = tree->current->parent;
+        }
+        return tree->current;
+
+    }
 }
