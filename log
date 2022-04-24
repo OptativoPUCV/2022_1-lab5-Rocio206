@@ -342,3 +342,9 @@ treemap.c:177:9: error: implicit declaration of function 'pritnf' [-Werror=impli
 cc1.exe: all warnings being treated as errors
 Compilation failed
 926ab7b
+do., 24 de abr. de 2022 19:57:47: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  14|5
+total_score: 15/70
+a52faa7

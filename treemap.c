@@ -174,7 +174,7 @@ Pair *nextTreeMap(TreeMap *tree)
         return minimum(tree->current->right)->pair;
     }
     else{
-        pritnf("-------------------");
+        
         while(tree->lower_than(tree->current->parent, tree->current) == 1){
             tree->current = tree->current->parent;
         }
