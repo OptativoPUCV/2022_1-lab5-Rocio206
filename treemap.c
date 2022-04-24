@@ -55,12 +55,17 @@ void insertTreeMap(TreeMap *tree, void *key, void *value)
 {
     tree->current = tree->root;
 
-    while (tree->current != NULL){
-        if (is_equal(tree, key, tree->current->pair->key) == 1) return;
-        else{
-            if (tree->lower_than(tree->current->pair->key, key) == 0) tree->current = tree->current->right;
+    while (tree->current != NULL)
+    {
+        if (is_equal(tree, key, tree->current->pair->key) == 1)
+            return;
+        else
+        {
+            if (tree->lower_than(tree->current->pair->key, key) == 0)
+                tree->current = tree->current->right;
 
-            else tree->current = tree->current->left;
+            else
+                tree->current = tree->current->left;
         }
     }
     tree->current = createTreeNode(key, value);
@@ -68,8 +73,10 @@ void insertTreeMap(TreeMap *tree, void *key, void *value)
 
 TreeNode *minimum(TreeNode *x)
 {
-    if (x == NULL) return NULL;
-    while (x->left != NULL){
+    if (x == NULL)
+        return NULL;
+    while (x->left != NULL)
+    {
         x = x->left;
     }
 
@@ -94,21 +101,26 @@ void eraseTreeMap(TreeMap *tree, void *key)
 Pair *searchTreeMap(TreeMap *tree, void *key)
 {
     tree->current = tree->root;
-    while (tree->current != NULL){
-        if (is_equal(tree, key, tree->current->pair->key) == 1) {
-            //printf("--------%d_---------",tree->current->pair->key);
+    while (tree->current != NULL)
+    {
+        if (is_equal(tree, key, tree->current->pair->key) == 1)
+        {
+            // printf("--------%d_---------",tree->current->pair->key);
             return tree->current->pair;
         }
 
-        else{
-            if (tree->lower_than(tree->current->pair->key, key) == 0) tree->current = tree->current->right; 
-    
-            else tree->current = tree->current->right;
+        else
+        {
+            if (tree->lower_than(tree->current->pair->key, key) == 0)
+                tree->current = tree->current->right;
+
+            else
+                tree->current = tree->current->right;
         }
     }
-    
+
     return NULL;
-} 
+}
 
 Pair *upperBound(TreeMap *tree, void *key)
 {
