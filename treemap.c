@@ -86,26 +86,15 @@ TreeNode *minimum(TreeNode *x)
 void removeNode(TreeMap *tree, TreeNode *node)
 {
     if (node->left != NULL && node->right != NULL){ //dos hijos
-        TreeNode *max = node->left;
-        while(max->right != NULL){
-            max = max->right;
-        }
-        max->pair = node->pair;
-        if (max->left != NULL) {
-            max->parent->right = max->left;
-            max->left->parent = max->parent;
-        }
-        else {
-            max->parent->left = NULL;
-        }
-        free(max);
+        TreeNode *min = minimum(node->right);
+        node->pair= min->pair;
+        removeNode(tree,min);
     }
     else if (node->left == NULL && node->right == NULL){ ///ningun hijo
-        printf("------------------");
         if (node == node->parent->left ) node->parent->left = NULL;
         else node->parent->right = NULL;
     }
-    else 
+    else // un hijo
     {            
 
         if (node->left != NULL)
