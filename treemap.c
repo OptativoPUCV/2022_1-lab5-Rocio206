@@ -164,21 +164,21 @@ Pair *firstTreeMap(TreeMap *tree)
     while (tree->current->left != NULL){
         tree->current = tree->current->left;
     }
-    return tree->current;
+    return tree->current->pair;
 }
 
 Pair *nextTreeMap(TreeMap *tree)
 {
-    if (tree->current == tree->root) return ;
+    if (tree->current == tree->root) return NULL;
 
     if (tree->current->right != NULL){
-        return minimum(tree->current->right);
+        return minimum(tree->current->right)->pair;
     }
     else{
         while(tree->lower_than(tree->current, tree->current->parent) == 1){
             tree->current = tree->current->parent;
         }
-        return tree->current;
+        return tree->current->pair;
 
     }
 }
