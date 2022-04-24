@@ -80,14 +80,18 @@ Pair *searchTreeMap(TreeMap *tree, void *key)
 {
     tree->current = tree->root;
     while (tree->current != NULL){
-        if (is_equal(tree, key, tree->current->pair->key) == 1) return tree->current->pair;
-    
+        if (is_equal(tree, key, tree->current->pair->key) == 1) {
+            printf("--------%d_---------",tree->current->pair->key);
+            return tree->current->pair;
+        }
+
         else{
             if (tree->lower_than(tree->current->pair->key, key) == 0) tree->current = tree->current->right; 
     
             else tree->current = tree->current->right;
         }
     }
+    
     return NULL;
 } 
 
