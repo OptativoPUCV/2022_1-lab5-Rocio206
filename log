@@ -207,3 +207,9 @@ treemap.c:89:42: error: comparison between pointer and integer [-Werror]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 fc6974b
+do., 24 de abr. de 2022 18:39:52: 
+ treemap.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+ tests:  10|6
+total_score: 5/70
+109e005
