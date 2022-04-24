@@ -196,3 +196,14 @@ do., 24 de abr. de 2022 18:36:29:
  tests:  10|6
 total_score: 5/70
 2163762
+do., 24 de abr. de 2022 18:37:28: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c: In function 'removeNode':
+treemap.c:89:42: error: comparison between pointer and integer [-Werror]
+     if (((node->left ) && (node->right)) != NULL){
+                                          ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+fc6974b
