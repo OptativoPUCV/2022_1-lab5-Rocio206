@@ -101,6 +101,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         free(max);
     }
     else{
+        printf("----------");
         if (node->left != NULL)
         {
             node->parent->left = node->left;
@@ -114,7 +115,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         }
         else 
         {
-            printf("----------");
+            
             if(node->parent->left != NULL){
                 node->parent->left = NULL;
             }
