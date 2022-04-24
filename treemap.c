@@ -159,6 +159,8 @@ Pair *upperBound(TreeMap *tree, void *key)
 
 Pair *firstTreeMap(TreeMap *tree)
 {
+    printf("--------------------");
+    
     tree->current = tree->root;
 
     while (tree->current->left != NULL){
@@ -177,6 +179,7 @@ Pair *nextTreeMap(TreeMap *tree)
             tree->current = tree->current->parent;
         }
         return tree->current->pair;
+
 
     }
 }
