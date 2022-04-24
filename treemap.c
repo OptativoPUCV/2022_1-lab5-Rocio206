@@ -90,39 +90,39 @@ void removeNode(TreeMap *tree, TreeNode *node)
         while(max->right != NULL){
             max = max->right;
         }
-        node->pair = max->pair;
+        max->pair = node->pair;
         if (max->left != NULL) {
             max->parent->right = max->left;
             max->left->parent = max->parent;
-            free(max);
         }
         else {
             max->parent->left = NULL;
-            free(max);
         }
+        free(max);
     }
     else{
         if (node->left != NULL)
         {
             node->parent->left = node->left;
-            free(node);
+
 
         }
         else if (node->right != NULL)
         {
             node->parent->right = node->right;
-            free(node);
+
         }
         else 
         {
+            printf("----------");
             if(node->parent->left != NULL){
                 node->parent->left = NULL;
             }
             else {
                 node->parent->right = NULL;
-                free(node);
             }
         }
+        free(node);
         
 
     }
