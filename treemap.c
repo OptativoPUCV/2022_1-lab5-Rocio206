@@ -154,6 +154,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
                 node->parent->right = node->right;
             }
         }
+        removeNode(tree, node);
     }
 }
 
