@@ -199,19 +199,8 @@ Pair *searchTreeMap(TreeMap *tree, void *key)
 
 Pair *upperBound(TreeMap *tree, void *key)
 {
-    Pair *aux = tree->root;
-    tree->current= tree->root;
-    while (tree->current != NULL){
-        if (is_equal(tree, key, tree->current->pair->key) == 1){
-            return tree->current->pair;
-        }
-        else{
-            if (tree->current->pair->key > key && tree->current->pair->key < aux->key ){
-                aux = tree->current;
-            }
-        }
-    }
-    return aux;
+
+    return NULL;
 }
 
 Pair *firstTreeMap(TreeMap *tree)

@@ -744,3 +744,9 @@ cc1.exe: all warnings being treated as errors
 Compilation failed
 Compilation failed
 f7f9cbc
+do., 24 de abr. de 2022 23:43:52: 
+ treemap.c | 15 ++-------------
+ 1 file changed, 2 insertions(+), 13 deletions(-)
+ tests:  20|3
+total_score: 40/70
+79e1ed8
