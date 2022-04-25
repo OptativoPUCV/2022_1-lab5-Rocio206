@@ -173,14 +173,14 @@ Pair *firstTreeMap(TreeMap *tree)
 
 Pair *nextTreeMap(TreeMap *tree)
 {
+
     if (tree->current->right != NULL)
     {
-        printf("##############");
+        printf("--%d", *(int *)tree->current->pair->key);
         return minimum(tree->current->right)->pair;
     }
     else
     {
-        printf("---------------");
         while (tree->lower_than(tree->current->parent, tree->current) == 1)
         {
             tree->current = tree->current->parent;
