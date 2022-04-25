@@ -99,6 +99,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
     }
     else if (node->left == NULL && node->right == NULL)
     { /// ningun hijo
+        printf("---- soy un nodo sin hijos-----");
         if (node == node->parent->left)
             node->parent->left = NULL;
         else
@@ -173,14 +174,12 @@ Pair *firstTreeMap(TreeMap *tree)
 
 Pair *nextTreeMap(TreeMap *tree)
 {
-
     if (tree->current->right != NULL)
     {
-        printf("key current->right : %d\n", *(int *)tree->current->right->pair->key);
-        printf("key minimum : %d\n", *(int *)minimum(tree->current->right)->pair->key);
+        // printf("key current->right : %d\n", *(int *)tree->current->right->pair->key);
+        // printf("key minimum : %d\n", *(int *)minimum(tree->current->right)->pair->key);
 
         return minimum(tree->current->right)->pair;
-
     }
     // printf("key current : %d", *(int *)tree->current->pair->key);
     while (tree->lower_than(tree->current->parent, tree->current) == 1)
@@ -191,4 +190,3 @@ Pair *nextTreeMap(TreeMap *tree)
 
     return tree->current->pair;
 }
-
