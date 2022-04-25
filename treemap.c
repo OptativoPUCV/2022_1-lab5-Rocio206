@@ -149,11 +149,11 @@ void removeNode(TreeMap *tree, TreeNode *node)
 
                 node->left->parent = node->parent;
                 node->parent->left = node->left;
-                printf("key hijo iz despues %d******", *(int *)node->parent->left->pair->key);
+                //printf("key hijo iz despues %d******", *(int *)node->parent->left->pair->key);
             }
             else
             {
-                printf("key hijo der %d******", *(int *)node->right->pair->key);
+                //printf("key hijo der %d******", *(int *)node->right->pair->key);
                 node->right->parent = node->parent;
                 node->parent->left = node->right;
             }
@@ -199,7 +199,19 @@ Pair *searchTreeMap(TreeMap *tree, void *key)
 
 Pair *upperBound(TreeMap *tree, void *key)
 {
-    return NULL;
+    Pair *aux = tree->root;
+    tree->current= tree->root;
+    while (tree->current != NULL){
+        if (is_equal(tree, key, tree->current->pair->key) == 1){
+            return tree->current->pair;
+        }
+        else{
+            if (tree->current->pair->key > key && tree->current->pair->key < aux->key ){
+                aux = tree->current;
+            }
+        }
+    }
+    return aux;
 }
 
 Pair *firstTreeMap(TreeMap *tree)
