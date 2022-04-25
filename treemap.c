@@ -85,6 +85,7 @@ TreeNode *minimum(TreeNode *x)
 
 void removeNode(TreeMap *tree, TreeNode *node)
 {
+    printf("---- holas----");
     if (node == tree->root)
     {
         tree->root = NULL;
