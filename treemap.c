@@ -85,7 +85,7 @@ TreeNode *minimum(TreeNode *x)
 
 void removeNode(TreeMap *tree, TreeNode *node)
 {
-    printf("---- holas----");
+
     if (node == tree->root)
     {
         tree->root = NULL;
@@ -94,14 +94,13 @@ void removeNode(TreeMap *tree, TreeNode *node)
     }
     if (node->left != NULL && node->right != NULL)
     { // dos hijos
-        printf("---- soy un nodo con 2 hijos-----");
+
         TreeNode *min = minimum(node->right);
         node->pair = min->pair;
         removeNode(tree, min);
     }
     else if (node->left == NULL && node->right == NULL)
     { /// ningun hijo
-        printf("---- soy un nodo sin hijos-----");
         if (node == node->parent->left)
             node->parent->left = NULL;
         else
@@ -150,7 +149,7 @@ Pair *searchTreeMap(TreeMap *tree, void *key)
                 tree->current = tree->current->right;
 
             else
-                tree->current = tree->current->right;
+                tree->current = tree->current->left;
         }
     }
 
