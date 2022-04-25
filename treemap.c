@@ -130,6 +130,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
         // printf("---- soy un nodo un hijo-----");
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1)
         {
+            printf("--- aqui vamos ---\n");
             return;
         }
     }
