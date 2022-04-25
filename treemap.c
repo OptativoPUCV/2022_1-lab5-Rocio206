@@ -129,7 +129,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
     {
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1)
         {
-            printf("soy de aq\n");
+
             if (node->left != NULL)
             {
                 node->left->parent = node->parent;
@@ -143,6 +143,8 @@ void removeNode(TreeMap *tree, TreeNode *node)
         }
         else
         {
+            printf("soy de aq\n");
+            
             if (node->left != NULL)
             {
                 node->left->parent = node->parent;
