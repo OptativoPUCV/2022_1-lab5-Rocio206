@@ -127,11 +127,18 @@ void removeNode(TreeMap *tree, TreeNode *node)
     }
     else // un hijo
     {
-        printf("---- soy un nodo un hijo-----");
+        printf("---- soy un nodo un hijo-----\n");
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1)
         {
-            printf("--- aqui vamos ---\n");
+
             return;
+        }
+        else
+        {
+            if (node->left != NULL)
+                node->parent->right = node->left;
+            else
+                node->parent->right = node->right;
         }
     }
     free(node);
