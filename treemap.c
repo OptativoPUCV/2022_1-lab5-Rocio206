@@ -182,10 +182,12 @@ Pair *nextTreeMap(TreeMap *tree)
     }
     else
     {
+        printf("key current : %d", *(int *)tree->current->pair->key);
         while (tree->lower_than(tree->current->parent, tree->current) == 1)
         {
             tree->current = tree->current->parent;
         }
+        printf("key current luego del ciclo : %d", *(int *)tree->current->pair->key);
         return tree->current->pair;
     }
 }
