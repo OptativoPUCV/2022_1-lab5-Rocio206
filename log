@@ -638,3 +638,9 @@ do., 24 de abr. de 2022 22:57:47:
  1 file changed, 1 insertion(+)
  tests:  16|0
 ---- soyeed7436
+do., 24 de abr. de 2022 22:58:36: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  20|3
+total_score: 40/70
+5496eb2
