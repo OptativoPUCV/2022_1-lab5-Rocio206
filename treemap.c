@@ -146,6 +146,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
 
             if (node->left != NULL)
             {
+                printf("key hijo %d******", *(int *)node->left->pair->key);
                 node->left->parent = node->parent;
                 node->parent->left = node->left;
             }
