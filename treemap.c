@@ -178,16 +178,20 @@ Pair *nextTreeMap(TreeMap *tree)
     {
         printf("key current->right : %d\n", *(int *)tree->current->right->pair->key);
         printf("key minimum : %d\n", *(int *)minimum(tree->current->right)->pair->key);
+        if (tree->lower_than(minimum(tree->current->right)->pair->key, tree->current->right->pair->key))
+            return NULL;
+
         return minimum(tree->current->right)->pair;
     }
     else
     {
-        printf("key current : %d", *(int *)tree->current->pair->key);
+        // printf("key current : %d", *(int *)tree->current->pair->key);
         while (tree->lower_than(tree->current->parent, tree->current) == 1)
         {
             tree->current = tree->current->parent;
         }
-        printf("key current luego del ciclo : %d", *(int *)tree->current->pair->key);
+        // printf("key current luego del ciclo : %d", *(int *)tree->current->pair->key);
+
         return tree->current->pair;
     }
 }
