@@ -93,6 +93,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
     }
     if (node->left != NULL && node->right != NULL)
     { // dos hijos
+        printf("---- soy un nodo con 2 hijos-----");
         TreeNode *min = minimum(node->right);
         node->pair = min->pair;
         removeNode(tree, min);
@@ -107,7 +108,7 @@ void removeNode(TreeMap *tree, TreeNode *node)
     }
     else // un hijo
     {
-
+        printf("---- soy un nodo un hijo-----");
         if (node->left != NULL)
         {
             node->parent->left = node->right;
