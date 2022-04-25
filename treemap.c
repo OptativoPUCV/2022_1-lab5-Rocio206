@@ -177,7 +177,7 @@ Pair *nextTreeMap(TreeMap *tree)
     if (tree->current->right != NULL)
     {
         printf("--%d", *(int *)tree->current->right->pair->key);
-        return minimum(tree->current->right)->pair;
+        return minimum(tree->current)->pair;
     }
     else
     {
