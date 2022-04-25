@@ -132,6 +132,20 @@ void removeNode(TreeMap *tree, TreeNode *node)
 
             if (node->left != NULL)
             {
+                node->parent->left = node->left;
+                node->left->parent = node->parent;
+            }
+            else
+            {
+                node->parent->left = node->right;
+                node->right->parent = node->parent;
+            }
+        }
+        else
+        {
+
+            if (node->left != NULL)
+            {
                 node->left->parent = node->parent;
                 node->parent->left = node->left;
             }
@@ -139,21 +153,6 @@ void removeNode(TreeMap *tree, TreeNode *node)
             {
                 node->right->parent = node->parent;
                 node->parent->left = node->right;
-            }
-        }
-        else
-        {
-            printf("soy de aq\n");
-
-            if (node->left != NULL)
-            {
-                node->left->parent = node->parent;
-                node->parent->right = node->left;
-            }
-            else
-            {
-                node->right->parent = node->parent;
-                node->parent->right = node->right;
             }
         }
         free(node);
