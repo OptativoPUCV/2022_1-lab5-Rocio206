@@ -446,3 +446,13 @@ treemap.c:181:13: error: too few arguments to function 'tree->lower_than'
              ^~~~
 Compilation failed
 6bd2b35
+do., 24 de abr. de 2022 21:31:36: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c: In function 'nextTreeMap':
+treemap.c:181:93: error: invalid type argument of '->' (have 'int')
+         if (tree->lower_than(minimum(tree->current->right->pair->key), tree->current->right)->pair->key)
+                                                                                             ^~
+Compilation failed
+d3aec1a
