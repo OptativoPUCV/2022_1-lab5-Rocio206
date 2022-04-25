@@ -178,7 +178,7 @@ Pair *nextTreeMap(TreeMap *tree)
     {
         if (tree->current->right->left == NULL)
         {
-            return tree->current->right->pair;
+            return NULL;
         }
         else
         {
