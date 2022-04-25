@@ -130,18 +130,31 @@ void removeNode(TreeMap *tree, TreeNode *node)
         printf("---- soy un nodo un hijo-----\n");
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1)
         {
-
-            return;
+            if (node->left != NULL)
+            {
+                node->left->parent = node->parent;
+                node->parent->right = node->left;
+            }
+            else
+            {
+                node->right->parent = node->parent;
+                node->parent->right = node->right;
+            }
         }
         else
         {
             if (node->left != NULL)
-                node->parent->right = node->left;
+            {
+                node->left->parent = node->parent;
+                node->parent->left = node->left;
+            }
             else
+            {
+                node->right->parent = node->parent;
                 node->parent->right = node->right;
+            }
         }
     }
-    free(node);
 }
 
 void eraseTreeMap(TreeMap *tree, void *key)
