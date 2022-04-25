@@ -461,3 +461,8 @@ do., 24 de abr. de 2022 21:32:20:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 55dc973
+do., 24 de abr. de 2022 21:33:13: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  0|0
+47f2201
