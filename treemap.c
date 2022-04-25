@@ -130,89 +130,78 @@ void removeNode(TreeMap *tree, TreeNode *node)
         // printf("---- soy un nodo un hijo-----");
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1)
         {
-            if (node->left != NULL)
-                node->parent->left = node->right;
-            else
-                node->parent->left = node->left;
+            return;
         }
-        else
-        {
-            if (node->left != NULL)
-                node->parent->right = node->right;
-            else
-                node->parent->right = node->left;
-        }
+        free(node);
     }
-    free(node);
-}
 
-void eraseTreeMap(TreeMap *tree, void *key)
-{
-    if (tree == NULL || tree->root == NULL)
-        return;
-
-    if (searchTreeMap(tree, key) == NULL)
-        return;
-    TreeNode *node = tree->current;
-    removeNode(tree, node);
-}
-
-Pair *searchTreeMap(TreeMap *tree, void *key)
-{
-    tree->current = tree->root;
-    while (tree->current != NULL)
+    void eraseTreeMap(TreeMap * tree, void *key)
     {
-        if (is_equal(tree, key, tree->current->pair->key) == 1)
-        {
-            // printf("--------%d_---------",tree->current->pair->key);
-            return tree->current->pair;
-        }
+        if (tree == NULL || tree->root == NULL)
+            return;
 
-        else
+        if (searchTreeMap(tree, key) == NULL)
+            return;
+        TreeNode *node = tree->current;
+        removeNode(tree, node);
+    }
+
+    Pair *searchTreeMap(TreeMap * tree, void *key)
+    {
+        tree->current = tree->root;
+        while (tree->current != NULL)
         {
-            if (tree->lower_than(tree->current->pair->key, key) == 1)
-                tree->current = tree->current->right;
+            if (is_equal(tree, key, tree->current->pair->key) == 1)
+            {
+                // printf("--------%d_---------",tree->current->pair->key);
+                return tree->current->pair;
+            }
 
             else
-                tree->current = tree->current->left;
+            {
+                if (tree->lower_than(tree->current->pair->key, key) == 1)
+                    tree->current = tree->current->right;
+
+                else
+                    tree->current = tree->current->left;
+            }
         }
+
+        return NULL;
     }
 
-    return NULL;
-}
-
-Pair *upperBound(TreeMap *tree, void *key)
-{
-    return NULL;
-}
-
-Pair *firstTreeMap(TreeMap *tree)
-{
-
-    tree->current = tree->root;
-
-    while (tree->current->left != NULL)
+    Pair *upperBound(TreeMap * tree, void *key)
     {
-        tree->current = tree->current->left;
+        return NULL;
     }
-    return tree->current->pair;
-}
 
-Pair *nextTreeMap(TreeMap *tree)
-{
-    if (tree->current->right != NULL)
+    Pair *firstTreeMap(TreeMap * tree)
     {
-        // printf("key current->right : %d\n", *(int *)tree->current->right->pair->key);
-        // printf("key minimum : %d\n", *(int *)minimum(tree->current->right)->pair->key);
 
-        return minimum(tree->current->right)->pair;
+        tree->current = tree->root;
+
+        while (tree->current->left != NULL)
+        {
+            tree->current = tree->current->left;
+        }
+        return tree->current->pair;
     }
-    // printf("key current : %d", *(int *)tree->current->pair->key);
-    while (tree->lower_than(tree->current->parent, tree->current) == 1)
+
+    Pair *nextTreeMap(TreeMap * tree)
     {
-        tree->current = tree->current->parent;
-    }
-    // printf("key current luego del ciclo : %d", *(int *)tree->current->pair->key);
+        if (tree->current->right != NULL)
+        {
+            // printf("key current->right : %d\n", *(int *)tree->current->right->pair->key);
+            // printf("key minimum : %d\n", *(int *)minimum(tree->current->right)->pair->key);
 
-    return tree->current->pair;
-}
+            return minimum(tree->current->right)->pair;
+        }
+        // printf("key current : %d", *(int *)tree->current->pair->key);
+        while (tree->lower_than(tree->current->parent, tree->current) == 1)
+        {
+            tree->current = tree->current->parent;
+        }
+        // printf("key current luego del ciclo : %d", *(int *)tree->current->pair->key);
+
+        return tree->current->pair;
+    }
